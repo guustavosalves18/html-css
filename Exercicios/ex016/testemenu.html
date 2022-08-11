@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Scroll Fixo com jQuery</title>
+    <link rel="stylesheet" href="">
+    <style type="text/css" media="screen">
+ 
+    /* RESET CSS */
+    { margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit; vertical-align: baseline; }
+     { display: block;
+    }
+    body { line-height: 1;
+    }
+    ol, ul { list-style: none;
+    }
+    blockquote, q { quotes: none;
+    }
+    blockquote:before, blockquote:after,
+    q:before, q:after { content: ''; content: none;
+    }
+    table { border-collapse: collapse; border-spacing: 0;
+    }
+   {
+    height: 100%;
+   }
+    main {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.457);
+    margin: auto;
+    background-image: linear-gradient(to bottom, #36B3A0, #59FFE6);
+ }
+    
+ 
+    body { position: relative; font-family: Open Sans;  
+        background-image: linear-gradient(to right, #36B3A0, #59FFE6);
+    }
+ 
+    p { margin-bottom: 15px; }
+ 
+    #header { display: flex; align-items: center; justify-content: center; padding: 50px; }
+ 
+    #menuHeader { display: flex; align-items: center; justify-content: space-between; background: #52416e; width: 100%; transition: all .5s; }
+    #menuHeader ul { display: flex; padding: 0 30px; list-style: none; }
+    #menuHeader ul li { transition: all .5s; }
+    #menuHeader ul li.active { background: #a3b846; }
+    #menuHeader ul li:hover { background: #a3b846; transition: all .5s; }
+    #menuHeader ul li a { display: inline-block; color: #fff; text-decoration: none; padding: 30px 20px; transition: all .5s; }
+    #menuHeader form { display: flex; align-items: center; padding: 0 30px; }
+    #menuHeader form input { padding: 10px; border: 0; }
+    #menuHeader form button { background: #a3b846; color: #fff; font-size: 15px; border: 0; padding: 8px 15px; cursor: pointer; transition: all .5s; }
+    #menuHeader form button:hover { background: #0c5651; transition: all .5s; }
+    .menu-fixo { position: fixed; top: 0; z-index: 99; transition: all .5s; }
+    .menu-fixo a { padding: 20px 20px !important; transition: all .5s; }
+ 
+    #main { height: 800px; background: #f6f6f6; }
+    #main .container { padding: 30px; display: flex; }
+    #main .container .content { flex: 1; width: 75%; min-height: 300px; background: #fff; padding: 25px; margin-right: 15px; }
+    #main .container .content h2 { font-size: 35px; font-weight: bold; }
+    #main .container .sidebar { min-width: 300px; background: #fff; }
+    #main .container .sidebar .widget { padding: 25px;
+    border-bottom: 15px solid #f6f6f6;   }
+    #main .container .sidebar .widget h3 { font-size: 20px; font-weight: bold; text-transform: uppercase; margin-bottom: 10px; padding: 10px 0; border-bottom: 1px solid #f6f6f6; }
+</style>
+</head>
+<body>
+    <header id="header" class=""> 
+        <div id="logo">
+            <img src="https://comodesenvolver.com.br/wp-content/uploads/2017/05/como-desenvolver.png" alt="Como Desenvolver">
+        </div>
+         
+    </header><!-- /header -->
+    <nav id="menuHeader">
+        <ul>
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#">Produtos</a></li>
+            <li><a href="#">Lojas</a></li>
+            <li><a href="#">Empresa</a></li>
+            <li><a href="#">Contato</a></li>
+        </ul>
+        
+    </nav>
+    <div id="main">
+        <div class="container">
+            <div class="content">
+        
+                <h2>ARTIGO</h2>
+                <br>
+                <p>O <strong>Lorem Ipsum</strong> é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro. Este texto não só sobreviveu 5 séculos, mas também o salto para a tipografia electrónica, mantendo-se essencialmente inalterada. Foi popularizada nos anos 60 com a disponibilização das folhas de Letraset, que continham passagens com Lorem Ipsum, e mais recentemente com os programas de publicação como o Aldus PageMaker que incluem versões do Lorem Ipsum.</p>
+ 
+                <h2>Porque é que o usamos?</h2>
+                <p>É um facto estabelecido de que um leitor é distraído pelo conteúdo legível de uma página quando analisa a sua mancha gráfica. Logo, o uso de Lorem Ipsum leva a uma distribuição mais ou menos normal de letras, ao contrário do uso de "Conteúdo aqui, conteúdo aqui", tornando-o texto legível. Muitas ferramentas de publicação electrónica e editores de páginas web usam actualmente o Lorem Ipsum como o modelo de texto usado por omissão, e uma pesquisa por "lorem ipsum" irá encontrar muitos websites ainda na sua infância. Várias versões têm evoluído ao longo dos anos, por vezes por acidente, por vezes propositadamente (como no caso do humor).</p>
+ 
+                <h2>De onde é que ele vem?</h2>
+                <p>Ao contrário da crença popular, o Lorem Ipsum não é simplesmente texto aleatório. Tem raízes numa peça de literatura clássica em Latim, de 45 AC, tornando-o com mais de 2000 anos. Richard McClintock, um professor de Latim no Colégio Hampden-Sydney, na Virgínia, procurou uma das palavras em Latim mais obscuras (consectetur) numa passagem Lorem Ipsum, e atravessando as cidades do mundo na literatura clássica, descobriu a sua origem. Lorem Ipsum vem das secções 1.10.32 e 1.10.33 do "de Finibus Bonorum et Malorum" (Os Extremos do Bem e do Mal), por Cícero, escrito a 45AC. Este livro é um tratado na teoria da ética, muito popular durante a Renascença. A primeira linha de Lorem Ipsum, "Lorem ipsum dolor sit amet..." aparece de uma linha na secção 1.10.32.</p><p>O pedaço mais habitual do Lorem Ipsum usado desde os anos 1500 é reproduzido abaixo para os interessados. As secções 1.10.32 e 1.10.33 do "de Finibus Bonorum et Malorum" do Cícero também estão reproduzidos na sua forma original, acompanhados pela sua tradução em Inglês, versões da tradução de 1914 por H. Rackham.</p>
+ 
+                <h2>Onde posso arranjar algum?</h2>
+                <p>Existem muitas variações das passagens do Lorem Ipsum disponíveis, mas a maior parte sofreu alterações de alguma forma, pela injecção de humor, ou de palavras aleatórias que nem sequer parecem suficientemente credíveis. Se vai usar uma passagem do Lorem Ipsum, deve ter a certeza que não contém nada de embaraçoso escondido no meio do texto. Todos os geradores de Lorem Ipsum na Internet acabam por repetir porções de texto pré-definido, como necessário, fazendo com que este seja o primeiro verdadeiro gerador na Internet. Usa um dicionário de 200 palavras em Latim, combinado com uma dúzia de modelos de frases, para gerar Lorem Ipsum que pareçam razoáveis. Desta forma, o Lorem Ipsum gerado é sempre livre de repetição, ou de injecção humorística, etc.</p>
+ 
+                <p>O <strong>Lorem Ipsum</strong> é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro. Este texto não só sobreviveu 5 séculos, mas também o salto para a tipografia electrónica, mantendo-se essencialmente inalterada. Foi popularizada nos anos 60 com a disponibilização das folhas de Letraset, que continham passagens com Lorem Ipsum, e mais recentemente com os programas de publicação como o Aldus PageMaker que incluem versões do Lorem Ipsum.</p>
+ 
+                
+            
+</body>
+<script
+src="https://code.jquery.com/jquery-3.3.1.min.js"
+integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+crossorigin="anonymous"></script>
+
+</html>
